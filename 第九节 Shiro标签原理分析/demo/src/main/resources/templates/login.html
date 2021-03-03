@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form id="form">
+        <input type="text">
+        <input type="password">
+        <button id="submit">提交</button>
+    </form>
+</div>
+<script src="https://s2.pstatp.com/cdn/expire-1-M/jquery/1.7.1/jquery.min.js"></script>
+<script>
+    $('#submit').on('click',(e)=>{
+        e.preventDefault();
+        $.ajax({
+            type:'post',
+            contentType:"json",
+            url:"/submit",
+            data:$('#form').serialize(),
+            success:(res)=>{
+                console.log(res)
+            }
+        })
+    })
+</script>
+</body>
+</html>
